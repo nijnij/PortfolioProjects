@@ -13,10 +13,10 @@ UPDATE NashvilleHousing
 SET SaleDate = CONVERT(Date, SaleDate)
 
 ALTER TABLE NashvilleHousing
- ADD SaleDateConverted date
+ADD SaleDateConverted date
 
- UPDATE NashvilleHousing
- SET SaleDateConverted = CONVERT(Date, SaleDate)
+UPDATE NashvilleHousing
+SET SaleDateConverted = CONVERT(Date, SaleDate)
 
 
 -- Populate property address data
@@ -53,65 +53,65 @@ SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddress) +1,  LEN(PropertyAddr
 FROM NashvilleHousing
 
 ALTER TABLE NashvilleHousing
- ADD PropertySplitAddress nvarchar(255)
+ADD PropertySplitAddress nvarchar(255)
 
- UPDATE NashvilleHousing
- SET PropertySplitAddress = SUBSTRING(PropertyAddress, 1, CHARINDEX(',', PropertyAddress) -1) 
+UPDATE NashvilleHousing
+SET PropertySplitAddress = SUBSTRING(PropertyAddress, 1, CHARINDEX(',', PropertyAddress) -1) 
 
 
- ALTER TABLE NashvilleHousing
- ADD PropertySplitCity date
+ALTER TABLE NashvilleHousing
+ADD PropertySplitCity date
 
- UPDATE NashvilleHousing
- SET PropertySplitCity = SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddress) +1,  LEN(PropertyAddress))
+UPDATE NashvilleHousing
+SET PropertySplitCity = SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddress) +1,  LEN(PropertyAddress))
 
- SELECT *
- FROM NashvilleHousing
+SELECT *
+FROM NashvilleHousing
 
 
 
 
  
- SELECT OwnerAddress
- FROM NashvilleHousing
-
- SELECT 
+SELECT OwnerAddress
+FROM NashvilleHousing
+	
+SELECT 
  PARSENAME(REPLACE(OwnerAddress, ',', '.'), 3),
  PARSENAME(REPLACE(OwnerAddress, ',', '.'), 2),
  PARSENAME(REPLACE(OwnerAddress, ',', '.'), 1)
   FROM NashvilleHousing
 
 
- ALTER TABLE NashvilleHousing
- ADD OwnerSplitAddress nvarchar(255)
+ALTER TABLE NashvilleHousing
+ADD OwnerSplitAddress nvarchar(255)
 
- UPDATE NashvilleHousing
- SET PropertySplitAddress =  PARSENAME(REPLACE(OwnerAddress, ',', '.'), 3)
-
-
- ALTER TABLE NashvilleHousing
- ADD OwnerSplitCity date
-
- UPDATE NashvilleHousing
- SET OwnerSplitCity = PARSENAME(REPLACE(OwnerAddress, ',', '.'), 2)
-
- ALTER TABLE NashvilleHousing
- ADD OwnerSplitState date
-
- UPDATE NashvilleHousing
- SET OwnerSplitState = PARSENAME(REPLACE(OwnerAddress, ',', '.'), 1)
+UPDATE NashvilleHousing
+SET PropertySplitAddress =  PARSENAME(REPLACE(OwnerAddress, ',', '.'), 3)
 
 
- SELECT *
- FROM NashvilleHousing
+ALTER TABLE NashvilleHousing
+ADD OwnerSplitCity date
+
+UPDATE NashvilleHousing
+SET OwnerSplitCity = PARSENAME(REPLACE(OwnerAddress, ',', '.'), 2)
+
+ALTER TABLE NashvilleHousing
+ADD OwnerSplitState date
+
+UPDATE NashvilleHousing
+SET OwnerSplitState = PARSENAME(REPLACE(OwnerAddress, ',', '.'), 1)
 
 
- -- Change Y and N to Yes and No in "Sold as Vacant" field
+SELECT *
+FROM NashvilleHousing
+
+
+-- Change Y and N to Yes and No in "Sold as Vacant" field
  
- SELECT DISTINCT(SoldAsVacant), COUNT(SoldAsVacant)
- FROM NashvilleHousing
- GROUP BY SoldAsVacant
- ORDER BY 2
+SELECT DISTINCT(SoldAsVacant), COUNT(SoldAsVacant)
+FROM NashvilleHousing
+GROUP BY SoldAsVacant
+ORDER BY 2
 
 
  SELECT SoldAsVacant,
@@ -123,8 +123,8 @@ ALTER TABLE NashvilleHousing
  FROM NashvilleHousing
 
 
- UPDATE NashvilleHousing
- SET SoldAsVacant = CASE WHEN SoldAsVacant = 'Y' THEN 'Yes'
+UPDATE NashvilleHousing
+SET SoldAsVacant = CASE WHEN SoldAsVacant = 'Y' THEN 'Yes'
 		 WHEN SoldAsVacant = 'N' THEN 'No'
 		 ELSE SoldAsVacant
 		 END
