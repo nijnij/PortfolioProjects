@@ -6,7 +6,7 @@
 
 My name is Jovana, and welcome to my Data Analyst portfolio! I hold a Bachelor's degree in Physical Chemistry and I'm currently pursuing a Master's degree in Physical Chemistry with a focus on Materials Science. Recently, I've also found myself drawn to the world of data analytics and I decided to delve deeper into that interest. Through this platform, you can explore the projects I've worked on, as I continue to nurture my growing interest in the field and continuously enhance my skills and knowledge. Hope you enjoy!
 
-## Table of Contetnts
+## Table of Contents
 
 
 1) [About](https://github.com/nijnij/PortfolioProjects/blob/main/README.md#about)
@@ -17,7 +17,7 @@ My name is Jovana, and welcome to my Data Analyst portfolio! I hold a Bachelor's
    - Power BI
        - [Data Professional Survey Breakdown](https://github.com/nijnij/PortfolioProjects-PBI/blob/main/Data%20Professional%20Survey%20Breakdown.png)
        - [Theoretical Densities of Metals in Periodic Table of Elements](https://github.com/nijnij/PortfolioProjects-PBI/blob/main/Theoretical%20Densities%20of%20Metals%20in%20Periodic%20Table%20of%20Elements.png)
-   - Tableau ---> [go to my Tableau Public profile](https://public.tableau.com/app/profile/jovana.nikolic)
+   - Tableau ---> go to [my Tableau Public profile](https://public.tableau.com/app/profile/jovana.nikolic)
    - Python
        - [Movie Correlation](https://github.com/nijnij/PortfolioProjects/blob/main/README.md#movie-correlation)
 3) [Education](https://github.com/nijnij/PortfolioProjects/blob/main/README.md#education)
